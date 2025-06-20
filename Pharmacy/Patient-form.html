@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Patient</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *:after, *:before {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.5;
+      background-color: #e0e6ff;
+      padding: 0 2rem;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    input {
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .card {
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 425px;
+      background-color: #FFF;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px 0 rgba(153, 153, 153, 0.25);
+      padding: .75rem;
+    }
+
+    .card-image {
+      border-radius: 8px;
+      overflow: hidden;
+      padding-bottom: 65%;
+      background-image: url('https://media.istockphoto.com/id/1257527600/vector/patient-lying-in-bed-during-intensive-therapy.jpg?s=612x612&w=0&k=20&c=kA51Ky3cyfLz_LiYuVhNizzYgy2YVPhyAUQG6JYxslI=');
+      background-repeat: no-repeat;
+      background-size: 150%;
+      background-position: 0 5%;
+      position: relative;
+    }
+
+    .card-heading {
+      position: absolute;
+      left: 10%;
+      top: 15%;
+      right: 10%;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #735400;
+      line-height: 1.222;
+    }
+
+    .card-heading small {
+      display: block;
+      font-size: .75em;
+      font-weight: 400;
+      margin-top: .25em;
+    }
+
+    .card-form {
+      padding: 2rem 1rem 0;
+    }
+
+    .input {
+      display: flex;
+      flex-direction: column-reverse;
+      position: relative;
+      padding-top: 1.5rem;
+    }
+
+    .input + .input {
+      margin-top: 1.5rem;
+    }
+
+    .input-label {
+      color: #8597a3;
+      position: absolute;
+      top: 1.5rem;
+      transition: .25s ease;
+    }
+
+    .input-field {
+      border: 0;
+      z-index: 1;
+      background-color: transparent;
+      border-bottom: 1px solid #eee; 
+      font: inherit;
+      font-size: 1.125rem;
+      padding: .25rem 0;
+    }
+
+    .input-field:focus,
+    .input-field:valid {
+      outline: 0;
+      border-bottom-color: #6658d3;
+    }
+
+    .input-field:focus + .input-label,
+    .input-field:valid + .input-label {
+      color: #6658d3;
+      transform: translateY(-1.5rem);
+    }
+
+    .action {
+      margin-top: 2rem;
+    }
+
+    .action-button {
+      font: inherit;
+      font-size: 1.25rem;
+      padding: 1em;
+      width: 100%;
+      font-weight: 500;
+      background-color: #6658d3;
+      border-radius: 6px;
+      color: #FFF;
+      border: 0;
+    }
+
+    .action-button:focus {
+      outline: 0;
+    }
+
+    .card-info {
+      padding: 1rem 1rem;
+      text-align: center;
+      font-size: .875rem;
+      color: #8597a3;
+    }
+
+    .card-info a {
+      display: block;
+      color: #6658d3;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-image">
+      <h2 class="card-heading">
+        Add New Patient
+        <small>Please fill in the details below</small>
+      </h2>
+    </div>
+    <form class="card-form" id="add-patient-form" action="savpatient.php" method="POST">
+      <div class="input">
+        <input type="text" class="input-field" id="patient-id" name="patient_id" required>
+        <label class="input-label" for="patient-id">Patient ID</label>
+      </div>
+      <div class="input">
+        <input type="text" class="input-field" id="patient-name" name="patient_name" required>
+        <label class="input-label" for="patient-name">Patient Name</label>
+      </div>
+      <div class="input">
+        <textarea class="input-field" id="patient-address" name="patient_address" rows="2" required></textarea>
+        <label class="input-label" for="patient-address">Patient Address</label>
+      </div>
+      <div class="input">
+        <input type="text" class="input-field" id="contact-no" name="contact_no" required>
+        <label class="input-label" for="contact-no">Contact No</label>
+      </div>
+      <div class="input">
+        <input type="number" class="input-field" id="age" name="age" required>
+        <label class="input-label" for="age">Age</label>
+      </div>
+      <div class="input">
+        <input type="email" class="input-field" id="email" name="email" required>
+        <label class="input-label" for="email">Email</label>
+      </div>
+      <div class="input">
+        <input type="text" class="input-field" id="prescription-id" name="prescription_id" required>
+        <label class="input-label" for="prescription-id">Prescription ID</label>
+      </div>
+      <div class="input">
+        <input type="text" class="input-field" id="order-id" name="order_id" required>
+        <label class="input-label" for="order-id">Order ID</label>
+      </div>
+      <div class="action">
+        <button type="submit" class="action-button">Add Patient</button>
+      </div>
+    </form>
+    <div class="card-info">
+      <a href="patient.php">Cancel and return to patient list</a>
+    </div>
+  </div>
+</body>
+</html>
