@@ -1,6 +1,6 @@
 # PharmacyManagement
+
 Collaborator: Tanushri Tonde.
-Sure! Here's a concise and professional **LinkedIn post** version of your project summary:
 
 ---
 
